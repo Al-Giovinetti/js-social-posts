@@ -92,4 +92,17 @@ posts.forEach((element,index)=>{
         </div> 
     </div> ` 
     divElement.append(post)
+
+    const likeButton = document.querySelectorAll("a.like-button")[index];
+    const likeCounter = document.querySelectorAll("b.js-likes-counter")[index]
+    likeButton.addEventListener("click",function(){
+        if (likeButton.classList.contains("active")){
+            likeButton.classList.remove("active");
+            likeCounter.innerHTML = element.likes 
+            
+        }else{
+            likeButton.classList.add("active");
+            likeCounter.innerHTML = element.likes + 1
+        }
+    })
 });
